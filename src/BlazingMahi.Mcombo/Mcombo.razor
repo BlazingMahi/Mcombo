@@ -1,0 +1,50 @@
+﻿@if (Moptions != null)
+{
+    <div class="edCheckCard row p-2 m-2 rounded">
+        @foreach (Moption moption in Moptions)
+        {
+            <div class="col-lg-@Columns hand mt-1 p-1">
+                <button type="button" class="bun h-100" @onclick='(() => optionClick(moption.Value))'>
+                    <div class="card h-100">
+                        <div class="card-body rounded @(Value == moption.Value ? $"text-white bg-{SelectedColor}" : "text-black-50 bg-light")">
+                            <h3><span class="@(Value == moption.Value ? "oi oi-circle-check" : "oi oi-circle-check edUnCheck")"></span></h3>
+                            <p class="card-text edText">@moption.Text</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Missing options list.</p>
+}
+
+@code {
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter] public string Value { get; set; }
+
+    [Parameter] public List<Moption> Moptions { get; set; }
+
+    [Parameter] public string Columns { get; set; } = "3";
+
+    [Parameter] public string SelectedColor { get; set; } = "primary";
+
+
+    public class Moption
+    {
+        public string Text { get; set; }
+        public string Value { get; set; }
+    }
+
+    async Task optionClick(string opt)
+    {
+        Value = opt;
+        await ValueChanged.InvokeAsync(opt);
+    }
+
+
+
+}
