@@ -3,7 +3,7 @@
     <div class="edCheckCard row p-2 m-2 rounded">
         @foreach (Moption moption in Moptions)
         {
-            <div class="col-lg-@Columns hand mt-1 p-1">
+            <div class="col-lg-@Columns mt-1 p-1">
                 <button type="button" class="bun h-100" @onclick='(() => optionClick(moption.Value))'>
                     <div class="card h-100">
                         <div class="card-body rounded @(Value == moption.Value ? $"text-white bg-{SelectedColor}" : "text-black-50 bg-light")">
@@ -18,7 +18,7 @@
 }
 else
 {
-    <p>Missing options list.</p>
+    <p>Loading...</p>
 }
 
 @code {
