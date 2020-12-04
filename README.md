@@ -1,4 +1,6 @@
 # BlazingMahi Mcombo
+![Build](https://github.com/blazingmahi/mcombo/workflows/Fish%20On%20Build/badge.svg)
+
 Blazor combo selection component that displays selection options in a grid type layout.
 
 ![Screenshot of component in action](mcombo-sel.gif)
