@@ -8,7 +8,7 @@
                     <div class="card h-100">
                         <div class="card-body rounded @(Value == moption.Value ? $"text-white bg-{SelectedColor}" : "text-black-50 bg-light")">
                             <h3><span class="@(Value == moption.Value ? "oi oi-circle-check" : "oi oi-circle-check edUnCheck")"></span></h3>
-                            <p class="card-text edText">@moption.Text</p>
+                            <p class="@TextClass">@moption.Text</p>
                         </div>
                     </div>
                 </button>
@@ -31,6 +31,8 @@ else
     [Parameter] public string Columns { get; set; } = "3";
 
     [Parameter] public string SelectedColor { get; set; } = "primary";
+
+    [Parameter] public string TextClass { get; set; } = "card-text";
 
 
     public class Moption

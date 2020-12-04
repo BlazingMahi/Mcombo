@@ -11,6 +11,8 @@
     transition: background 250ms ease-in-out, transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
+    display:block;
+    width:100%;
 }
 
     .bun:hover,

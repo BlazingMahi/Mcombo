@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Tyler Parkerson</Authors>
     <Description>Blazor combo selection component that displays selection options in a grid type layout.</Description>
     <Copyright>Copyright 2020 (c) Tyler Parkerson. All rights reserved.</Copyright>
