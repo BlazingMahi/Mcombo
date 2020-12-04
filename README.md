@@ -22,8 +22,8 @@ Add the following to your _Imports.razor or to your razor page files.
 <link href="_content/BlazingMahi.Mcombo/styles.css" rel="stylesheet" />
 ```
 
-### Add Mbutton Component
-Mbutton is configured using parameters on the `<Mcombo></Mcombo>` component. The following options are available.
+### Add Mcombo Component
+Mcombo is configured using parameters on the `<Mcombo></Mcombo>` component. The following options are available.
 
 - Value (selected value)
 - Moptions (List of selection items. )
