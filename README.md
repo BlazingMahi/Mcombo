@@ -70,6 +70,8 @@ Mcombo is configured using parameters on the `<Mcombo></Mcombo>` component. The 
         }
     };
 
+}
+
 ```
   Result would be...
   ![Screenshot of component in action](mcombo-sel.gif)

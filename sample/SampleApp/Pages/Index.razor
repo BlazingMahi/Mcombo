@@ -1,0 +1,41 @@
+﻿@page "/"
+@using BlazingMahi.Mcombo
+
+<h1>BlazingMahi.Mcombo Example</h1>
+
+
+<Mcombo @bind-Value="@SelectedItem" Moptions="moptions"></Mcombo>
+
+<div class="alert alert-dark text-center">
+    @SelectedItem
+</div>
+
+
+@code{
+
+    public string SelectedItem = "nothing selected.";
+
+    List<Mcombo.Moption> moptions = new List<Mcombo.Moption>()
+    {
+        new Mcombo.Moption {
+            Value = "Option 1",
+            Text = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."
+        },
+        new Mcombo.Moption {
+            Value = "Option 2",
+            Text = "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet"
+        },
+        new Mcombo.Moption
+        {
+            Value = "Option 3",
+            Text = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
+        },
+        new Mcombo.Moption
+        {
+            Value = "Option 4",
+            Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore."
+        }
+    };
+
+}
+
