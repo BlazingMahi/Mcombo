@@ -1,0 +1,119 @@
+﻿@page "/Sample"
+@using BlazingMahi.Mcombo
+
+<div class="row">
+    <EditForm Model="@exampleModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-row">
+            <div class="col">
+                <InputText type="text" id="mText" class="form-control" placeholder="Text" @bind-Value="exampleModel.mText" />
+            </div>
+            <div class="col">
+                <InputText type="text" id="mValue" class="form-control" placeholder="Value" @bind-Value="exampleModel.mValue" />
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mb-2">Create Item</button>
+            </div>
+        </div>
+        <p class="font-italic">* reload page to reset values.</p>
+    </EditForm>
+
+</div>
+
+@if (moptions.Count < 1)
+{
+    <p>Enter values above to start creating Mcombo selection elements.</p>
+}
+else
+{
+    <Mcombo @bind-Value="@SelectedItem" Moptions="moptions" 
+            Columns="@mComboSettings.mComboCols" 
+            SelectedColor="@mComboSettings.mComboSelectedColor" 
+            TextClass="@mComboSettings.mComboTextClass"></Mcombo>
+
+    <div class="alert alert-dark text-center">
+        @SelectedItem
+    </div>
+
+    <div class="card">
+        <h5 class="card-header">Settings</h5>
+
+        <div class="card-body">
+            <EditForm Model="@mComboSettings" OnValidSubmit="@ChangemCombosettings">
+                <div class="form-row">
+                    <div class="col">
+                        Columns <InputText type="text" id="mText" class="form-control" @bind-Value="@mComboSettings.mComboCols" />
+                    </div>
+                    <div class="col">
+                        SelectedColor <InputText type="text" id="mValue" class="form-control" placeholder="Value" @bind-Value="@mComboSettings.mComboSelectedColor" />
+                    </div>
+                    <div class="col">
+                        TextClass (example: h3 text-danger) <InputText type="text" id="mValue" class="form-control" placeholder="Value" @bind-Value="@mComboSettings.mComboTextClass" />
+                    </div>
+                    <div class="col-12 m-3">
+                        <button type="submit" class="btn btn-primary mb-2 btn-block">Change mCombo settings</button>
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+
+    </div>
+
+   
+ }
+
+
+
+        @code {
+            private ExampleModel exampleModel = new ExampleModel();
+            private MComboSettings mComboSettings = new MComboSettings();
+            List<Mcombo.Moption> moptions = new List<Mcombo.Moption>();
+            public string SelectedItem = "nothing selected.";
+            public string mComboCols = "3";
+            public string mComboSelectedColor = "primary";
+
+            private void HandleValidSubmit()
+            {
+                moptions.Add(new Mcombo.Moption()
+                {
+                    Text = exampleModel.mText,
+                    Value = exampleModel.mValue
+                });
+                StateHasChanged();
+            }
+
+            void ChangemCombosettings()
+            {
+                StateHasChanged();
+            }
+
+            public class ExampleModel
+            {
+                [Required]
+                public string mText { get; set; }
+
+                [Required]
+                public string mValue { get; set; }
+
+                [Required]
+                public string rows { get; set; } = "3";
+            }
+
+
+            public class MComboSettings
+            {
+                [Required]
+                public string mComboCols { get; set; } = "3";
+
+                [Required]
+                public string mComboSelectedColor { get; set; } = "primary";
+
+                public string mComboTextClass { get; set; } = "";
+            }
+
+
+
+
+        }
